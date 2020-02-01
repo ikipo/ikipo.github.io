@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Input For Admin</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+Add ClassName<br>
+<input type="number" id="idclass" placeholder="id">
+<input type="text" id="nameclass" placeholder="name">
+<button onclick="addClassNameFromForm();">Add</button>
+<hr>
+Add Chapter<br>
+<input type="number" id="idchapter" placeholder="id">
+<input type="text" id="namechapter" placeholder="name">
+<input type="number" id="idclasschapter" placeholder="id class">
+<button onclick="addChapterFromForm();">Add</button>
+<hr>
+Add ChapterContent<br>
+<input type="number" id="idchaptercontent" placeholder="id">
+<input type="text" id="namechaptercontent" placeholder="name">
+<input type="number" id="idclasschaptercontent" placeholder="id class">
+<input type="number" id="idchapterchaptercontent" placeholder="id chapter">
+<button onclick="addChapterContentFromForm();">Add</button>
+
+<script src="toanlop.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCDNIrdhAyxNomnhnlM-MMyoFVD3SeJfaU",
+    authDomain: "giaitoan-3e3ef.firebaseapp.com",
+    databaseURL: "https://giaitoan-3e3ef.firebaseio.com",
+    projectId: "giaitoan-3e3ef",
+    storageBucket: "giaitoan-3e3ef.appspot.com",
+    messagingSenderId: "906010712377",
+    appId: "1:906010712377:web:426c34ad586624eb62f0e8",
+    measurementId: "G-CZH6B46B20"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script>
+(function(){
+
+})();
+</script>
+</body>
+</html>

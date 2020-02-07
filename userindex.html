@@ -95,7 +95,7 @@ width:100%;
 height:auto;
 overflow:auto;
 }
-.timetable-list-content{
+#timetable-list-content{
 width:1000px;
 height:auto;
 text-align:center;
@@ -114,10 +114,20 @@ background-color:orange;
 color:white;
 }
 .timetable-content{
-width:13.2%;
+width:14.28%;
 float:left;
+margin:0px;
+}
+.morning{
 background-color:#33bbff;
-margin:5px;
+margin:2px 2px;
+padding:5px;
+}
+.afternoon{
+background-color:tomato;
+color:white;
+margin:2px 2px;
+padding:5px;
 }
 </style>
 </head>
@@ -161,72 +171,25 @@ margin:5px;
     <div class="timetable-list-container">
       <div class="timetable-list-title"><h2>Thời Khóa Biểu</h2></div>
       <div class="timetable-list-wraper">
-        <div class="timetable-list-content">
-          <!---->
+        <div id="timetable-list-content">
+          <!--
           <div class="timetable-content">
-            <h3>Thứ hai</h3>
-            <div>Toán</div>
-            <div>Toán</div>
-            <div>Toán</div>
-            <div>Toán</div>
-            <div>Toán</div>
-            <div>Toán</div>
-          <!---->
+            <h3 id="day">Thứ hai</h3>
+            <p id="t1" class="morning">Toán</p>
+            <p id="t2" class="morning">Toán</p>
+            <p id="t3" class="morning">Toán</p>
+            <p id="t4" class="morning">Toán</p>
+            <p id="t5" class="morning">Toán</p>
+            <p id="t6" class="morning">Toán</p>
+            <p id="t7" class="afternoon">Toán</p>
+            <p id="t8" class="afternoon">Toán</p>
+            <p id="t9" class="afternoon">Toán</p>
+            <p id="t10" class="afternoon">Toán</p>
+            <p id="t11" class="afternoon">Toán</p>
+            <p id="t12" class="afternoon">Toán</p>
+          
           </div>
-          <!---->
-          <div class="timetable-content">
-            <h3>Thứ ba</h3>
-            <div>Hóa</div>
-            <div>Toán</div>
-            <div>Tiếng Anh v1</div>
-            <div>Toán</div>
-          <!---->
-          </div>
-          <!---->
-          <div class="timetable-content">
-            <h3>Thứ tư</h3>
-            <div>Tiết1</div>
-            <div>Toán</div>
-            <div>Tiết2</div>
-            <div>Toán</div>
-          <!---->
-          </div>
-          <!---->
-          <div class="timetable-content">
-            <h3>Thứ năm</h3>
-            <div>Tiết1</div>
-            <div>Toán</div>
-            <div>Tiết2</div>
-            <div>Toán</div>
-          <!---->
-          </div>
-          <!---->
-          <div class="timetable-content">
-            <h3>Thứ sáu</h3>
-            <div>Tiết1</div>
-            <div>Toán</div>
-            <div>Tiết2</div>
-            <div>Toán</div>
-          <!---->
-          </div>
-          <!---->
-          <div class="timetable-content">
-            <h3>Thứ bảy</h3>
-            <div>Tiết1</div>
-            <div>Toán</div>
-            <div>Tiết2</div>
-            <div>Toán</div>
-          <!---->
-          </div>
-          <!---->
-          <div class="timetable-content">
-            <h3>Chủ nhật</h3>
-            <div>Tiết1</div>
-            <div>Toán</div>
-            <div>Tiết2</div>
-            <div>Toán</div>
-          <!---->
-          </div>
+          -->
         </div>
       </div>
     <!--end timetable-list-container-->

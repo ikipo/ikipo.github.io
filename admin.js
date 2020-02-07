@@ -155,13 +155,6 @@ this.banner=banner;
 this.avatar=avatar;
 }
 
-function OneTimetable(id,title,content,time,username){
-this.id=id;
-this.title=title;
-this.content=content;
-this.time=time;
-this.username=username;
-}
 function layout(){
 showSlide();
 showClass();

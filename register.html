@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Đăng nhập và Đăng ký</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+.polaroid {
+width: 100%;
+
+text-align: center;
+}
+
+.container {
+padding:5%;
+}
+.container > .container-content{
+padding:20px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+texarea:focus,input:focus{
+outline:none;
+}
+.username,.password{
+position:relative;
+width:90%;
+height:20px;
+padding:12px;
+border:1px solid tomato;
+border-radius:20px;
+margin-top:12px;
+}
+.username img, .password img{
+position:absolute;
+left:12px;
+top:12px;
+height:20px;
+}
+.username input,.password input{
+position:absolute;
+left:34px;
+border:none;
+margin-left:12px;
+color:red;
+}
+.loginbtn,.fbbtn,.ggbtn{
+padding:12px 20px;
+background-color:tomato;
+color:white;
+text-transform:uppercase;
+border-radius:20px;
+border:1px solid red;
+margin-top:12px;
+}
+.remember{
+margin-top:12px;
+text-align:left;
+}
+.fbbtn{
+margin:12px 20px;
+background-color:white;
+color:blue;
+border-color:blue;
+}
+.ggbtn{
+padding:12px 26px;
+background-color:white;
+color:red;
+border-color:red;
+}
+</style>
+</head>
+<body>
+  
+  <!--polaroid-->
+  <div class="polaroid">
+    <h1>Đăng ký</h1>
+    <div class="container">
+      
+      <div class="container-content">
+        <img style="width:20%" src="conong.png">
+        <!--form-->
+        <div class="form">
+          <div class="username">
+            <img src="https://cdn0.iconfinder.com/data/icons/elasto-online-store/26/00-ELASTOFONT-STORE-READY_user-512.png">
+            <input type="text" id="fullname" placeholder="Họ và Tên">
+          </div>
+          <div class="username">
+            <img src="https://cdn0.iconfinder.com/data/icons/elasto-online-store/26/00-ELASTOFONT-STORE-READY_user-512.png">
+            <input type="text" id="username" placeholder="Tên Đăng Nhập">
+          </div>
+          <div class="password">
+            <img src="https://cdn2.iconfinder.com/data/icons/elasto-online-store/26/00-ELASTOFONT-STORE-READY_eye-512.png">
+            <input type="password" id="password" placeholder="Mật Khẩu">
+          </div>
+          <div class="password">
+            <img src="https://cdn2.iconfinder.com/data/icons/elasto-online-store/26/00-ELASTOFONT-STORE-READY_eye-512.png">
+            <input type="password" id="repassword" placeholder=" Lặp Lại Mật Khẩu">
+          </div>
+          <button class="loginbtn" onclick="register();">Đăng ký</button>
+        <!--end form-->
+        </div>
+      <!--end container-content-->
+      </div>
+    <!--end container-->
+    </div>
+  <!--end polaroid-->
+  <div style="margin-top:12px;text-align:right;">Bạn đã có tài khoản? <a href="login.html">Đăng nhập</a></div>
+  </div>
+<script src="loginregister.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCDNIrdhAyxNomnhnlM-MMyoFVD3SeJfaU",
+    authDomain: "giaitoan-3e3ef.firebaseapp.com",
+    databaseURL: "https://giaitoan-3e3ef.firebaseio.com",
+    projectId: "giaitoan-3e3ef",
+    storageBucket: "giaitoan-3e3ef.appspot.com",
+    messagingSenderId: "906010712377",
+    appId: "1:906010712377:web:426c34ad586624eb62f0e8",
+    measurementId: "G-CZH6B46B20"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</body>
+</html>

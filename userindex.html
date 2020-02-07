@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+<title>Trang cá nhân</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+.container{
+width:100%;
+height:auto;
+}
+.content{
+position:relative;
+width:100%;
+text-align:center;
+}
+.content >.img1{
+width:100%;
+height:auto;
+}
+.content >.img2{
+
+}
+.content >.img1 img{
+width:100%;
+border-radius:20px 20px 0px 0px;
+}
+.userfullname{
+text-align:center;
+}
+.content >.img2 img{
+position:absolute;
+left:40%;
+bottom:0%;
+width:20%;
+}
+.input-wraper{
+text-align:center;
+}
+.input-wraper button{
+width:20%;
+padding:12px 20px;
+background-color:tomato;
+color:white;
+border-radius:20px;
+border:1px solid red;
+}
+.notes-content{
+position:relative;
+margin:5px 2px 5px 2px;
+width:90px;
+padding:12px 12px;
+background-color:tomato;
+color:white;
+border-radius:0 0 20px 0;
+border:1px solid red;
+}
+.n-title{
+text-decoration:underline;
+}
+.n-content{
+font-size:12px;
+}
+.n-other{
+float:right;
+}
+.n-time{
+color:yellow;
+}
+.n-day{
+color:yellow;
+}
+textarea{
+width:90%;
+text-align:center;
+}
+input{
+width:60%;
+padding:12px 20px;
+color:tomato;
+border:1px solid red;
+}
+.notes-list-container,.timetable-list-container{
+text-align:center;
+margin-top:20px;
+padding:20px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.notes-list-title h2,.timetable-list-title h2{
+text-align:left;
+color:tomato;
+}
+.notes-list-wraper,.timetable-list-wraper{
+width:100%;
+height:auto;
+overflow:auto;
+}
+.timetable-list-content{
+width:1000px;
+height:auto;
+text-align:center;
+}
+#notes-list-content{
+width:980px;
+height:auto;
+text-align:left;
+}
+.notes-list-content button{
+
+
+float:left;
+border-radius:0px 0px 20px 0px;
+background-color:orange;
+color:white;
+}
+.timetable-content{
+width:13.2%;
+float:left;
+background-color:#33bbff;
+margin:5px;
+}
+</style>
+</head>
+<body>
+  <!--container-->
+  <div class="container">
+    <div class="content" id="banneravatar">
+      <div class="img1"><img id="img1" src="https://cdn.pixabay.com/photo/2017/12/15/23/20/roe-deer-3021880_960_720.jpg"></div>
+      <div class="img2"><img id="img2" src="https://cdn.pixabay.com/photo/2016/03/31/14/47/avatar-1292817_640.png"></div>
+      
+    <!--end content-->
+    </div>
+    <div id="fullnamewr"></div>
+    <!--start input-wraper-->
+    <div class="input-wraper">
+      <input type="text" placeholder="Nhập ghi chú ..." id="inputNote">
+      <button onclick="addNote();">Ghi</button>
+    <!--end input-wraper-->
+    </div>
+    <!--start notes-list-container-->
+    <div class="notes-list-container">
+      <div class="notes-list-title"><h2>Ghi Chú</h2></div>
+      <div class="notes-list-wraper">
+        <div id="notes-list-content">
+          <!--
+          
+          <button class="notes-content">
+            <h2 class="n-title">Làm bài tập về nhà!</h2>
+            <textarea>Sau khi ăn xong lam bai tap. Nhớ lấy ví dụ cụ thể. Nhớ lấy ví dụ cụ thể. Nhớ lấy ví dụ cụ thể. Nhớ lấy ví dụ cụ thể.</textarea>
+            <h3 class="n-time">9h30p</h3>
+            <p class="n-day">12/6/2020</p>
+            <p class="n-other">Cần thiết</p>
+          
+          </button>
+          -->
+          
+      </div>
+    <!--end notes-list-container-->
+    </div>
+    <!--start timetable-list-container-->
+    <div class="timetable-list-container">
+      <div class="timetable-list-title"><h2>Thời Khóa Biểu</h2></div>
+      <div class="timetable-list-wraper">
+        <div class="timetable-list-content">
+          <!---->
+          <div class="timetable-content">
+            <h3>Thứ hai</h3>
+            <div>Toán</div>
+            <div>Toán</div>
+            <div>Toán</div>
+            <div>Toán</div>
+            <div>Toán</div>
+            <div>Toán</div>
+          <!---->
+          </div>
+          <!---->
+          <div class="timetable-content">
+            <h3>Thứ ba</h3>
+            <div>Hóa</div>
+            <div>Toán</div>
+            <div>Tiếng Anh v1</div>
+            <div>Toán</div>
+          <!---->
+          </div>
+          <!---->
+          <div class="timetable-content">
+            <h3>Thứ tư</h3>
+            <div>Tiết1</div>
+            <div>Toán</div>
+            <div>Tiết2</div>
+            <div>Toán</div>
+          <!---->
+          </div>
+          <!---->
+          <div class="timetable-content">
+            <h3>Thứ năm</h3>
+            <div>Tiết1</div>
+            <div>Toán</div>
+            <div>Tiết2</div>
+            <div>Toán</div>
+          <!---->
+          </div>
+          <!---->
+          <div class="timetable-content">
+            <h3>Thứ sáu</h3>
+            <div>Tiết1</div>
+            <div>Toán</div>
+            <div>Tiết2</div>
+            <div>Toán</div>
+          <!---->
+          </div>
+          <!---->
+          <div class="timetable-content">
+            <h3>Thứ bảy</h3>
+            <div>Tiết1</div>
+            <div>Toán</div>
+            <div>Tiết2</div>
+            <div>Toán</div>
+          <!---->
+          </div>
+          <!---->
+          <div class="timetable-content">
+            <h3>Chủ nhật</h3>
+            <div>Tiết1</div>
+            <div>Toán</div>
+            <div>Tiết2</div>
+            <div>Toán</div>
+          <!---->
+          </div>
+        </div>
+      </div>
+    <!--end timetable-list-container-->
+    </div>
+  <!--end container-->
+  <h2>Thông báo</h2>
+  </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCDNIrdhAyxNomnhnlM-MMyoFVD3SeJfaU",
+    authDomain: "giaitoan-3e3ef.firebaseapp.com",
+    databaseURL: "https://giaitoan-3e3ef.firebaseio.com",
+    projectId: "giaitoan-3e3ef",
+    storageBucket: "giaitoan-3e3ef.appspot.com",
+    messagingSenderId: "906010712377",
+    appId: "1:906010712377:web:426c34ad586624eb62f0e8",
+    measurementId: "G-CZH6B46B20"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="userindex.js"></script>
+</body>
+</html>

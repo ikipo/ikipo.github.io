@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+canvas{
+  width:99%;
+  height:99%;
+  border:2px solid tomato;
+  
+}
+img{
+width:100%;
+}
+</style>
+</head>
+<body>
+<canvas id="myCanvas">
+
+</canvas>
+<button onclick="viewPage();">View Fullscreen in Page</button>
+<div id="div">
+<img src="https://lh3.googleusercontent.com/proxy/xw71sCbTxdV2eoO4x8deBNPcMcYAQCZ_3-sZxVWP2utpogWQ3rNV9-8JXmKplR5sWtPEFafz7-5-UxMpcfAZ4yy1tWCxNno6">
+<img src="">
+<img src="https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Trees-PNG-Clipart/Green_Tree_PNG_Clipart-375836830.png?m=1507172102">
+</div>
+<script>
+window.onload = function() {
+var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+var width=canvas.width;
+var height=canvas.height;
+drawSky();
+drawImage("https://lh3.googleusercontent.com/proxy/xw71sCbTxdV2eoO4x8deBNPcMcYAQCZ_3-sZxVWP2utpogWQ3rNV9-8JXmKplR5sWtPEFafz7-5-UxMpcfAZ4yy1tWCxNno6",0,height-20,100);
+drawImage("https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Trees-PNG-Clipart/Green_Tree_PNG_Clipart-375836830.png?m=1507172102",0,height-120,20);
+
+
+};
+
+
+
+
+function drawImage(src,x,y,width){
+var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+var img=new Image();
+img.src=src;
+width=(width/100)*c.width;
+  ctx.drawImage(img, x, y, width, width*img.height/img.width);
+}
+function drawSky(){
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+var width=canvas.width;
+var height=canvas.height; 
+var grd=ctx.createLinearGradient(0,0,0,92);
+grd.addColorStop(0,"#00aaff");      
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.fillRect(0,0,width,height);
+}
+</script>
+<script type="text/javascript">
+function viewPage(){
+  var el=document.body;
+  //var el=document.getElementById("div");
+  toggleFullscreen(el);
+}
+
+function viewImage(){
+  var el=document.getElementById("myImage");
+  toggleFullscreen(el);
+}
+
+function toggleFullscreen(el){
+  if(document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement){
+    if(document.exitFullscreen){
+      document.exitFullscreen();
+    }else if(document.mozCancelFullScreen){
+      document.mozCancelFullScreen();
+    }else if(document.webkitExitFullscreen){
+      document.webkitExitFullscreen();
+    }else if(document.msExitFullscreen){
+      document.msExitFullscreen();
+    }
+  }else{
+    if(document.documentElement.requestFullscreen){
+      el.requestFullscreen();
+    }else if(document.documentElement.mozRequestFullScreen){
+      el.mozRequestFullScreen();
+    }else if(document.documentElement.webkitRequestFullscreen){
+      el.webkitRequestFullscreen();
+    }else if(document.documentElement.msRequestFullscreen){
+      el.msRequestFullscreen();
+    }
+  }
+}
+</script>
+</body>
+</html>

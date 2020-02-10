@@ -1,3 +1,27 @@
+window.onload=function(){
+
+con();
+}
+
+function con(){
+var body=document.body;
+var script1=document.createElement("script");
+script1.src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js";
+body.appendChild(script1);
+var script2=document.createElement("script");
+script2.src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js";
+body.appendChild(script2);
+var script3=document.createElement("script");
+script3.src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js";
+body.appendChild(script3);
+var script4=document.createElement("script");
+script4.src="config.js";
+body.appendChild(script4);
+var db=firebase.database();
+      var ref=db.ref("UserInfo/"+username);
+alert("");
+}
+
 function register(){
   var username=document.getElementById("username").value.trim();
   var fullname=document.getElementById("fullname").value.trim();
@@ -30,7 +54,7 @@ var oneUserInfo=snapshot.val();
 if(oneUserInfo!==null){
 alert("Tài khoản đã tồn tại!");
 }else{
-ref.set({"username":username,"fullname":fullname,"password":password,"banner":"https://cdn.pixabay.com/photo/2017/12/15/23/20/roe-deer-3021880_960_720.jpg","avatar":"https://cdn.pixabay.com/photo/2016/03/31/14/47/avatar-1292817_640.png"});
+ref.set({"username":username,"fullname":fullname,"password":password,"banner":"https://cdn.pixabay.com/photo/2017/12/15/23/20/roe-deer-3021880_960_720.jpg","avatar":"conong.png"});
         registerSuccess();
 }
 });

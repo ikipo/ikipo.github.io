@@ -180,21 +180,15 @@ border:1px solid red;
 </style>
 </head>
 <body>
-<input id="myFileInput" type="file" accept="image/*;capture=camera"> 
-<script>
-var myInput = document.getElementById('myFileInput'); 
-function sendPic() {
- var file = myInput.files[0];
- // Send file here either by adding it to a `FormData` object
- // and sending that via XHR, or by simply passing the file into
- // the `send` method of an XHR instance.
- } myInput.addEventListener('change', sendPic, false);
-</script>
+<div class="popup-container" id="avatar-popup-container"></div>
+<div class="popup" id="avatar-popup-content">
+ <input type="file" accept="image/*" id="ipavatar" onchange="editImage();">
+</div>
   <!--container-->
   <div class="container">
     <div class="content" id="banneravatar">
       <div class="img1"><img id="img1" src="https://cdn.pixabay.com/photo/2017/12/15/23/20/roe-deer-3021880_960_720.jpg"></div>
-      <div class="img2"><img id="img2" src="https://cdn.pixabay.com/photo/2016/03/31/14/47/avatar-1292817_640.png"></div>
+      <div class="img2"><img id="img2" src="conong.png"></div>
       
     <!--end content-->
     </div>

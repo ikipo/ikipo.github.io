@@ -6,6 +6,67 @@ showTimetable();
 }
 var noteId=1;
 var noteId2="";
+var imgtype="";
+function editFullname(){
+alert("");
+}
+function editBanner(){
+showEditImage();
+imgtype="banner";
+}
+function editImage(){
+var ip = document.getElementById("ipavatar");
+ip.disabled = true;
+var files = ip.files;
+
+if(files.length>0){
+var file = files[0];
+var fileReader = new FileReader();
+fileReader.onload = function(s){
+ var data = s.target.result;
+ var img = document.createElement("img");
+img.src = data;
+img.style.height="60%";
+var br = document.createElement("br");
+var button = document.createElement("button");
+button.className = "button";
+button.innerHTML = "Xong";
+button.onclick = function(){
+ var user = new UserInfo();
+ var db=firebase.database();
+ var ref=db.ref("UserInfo/"+user.username);
+ if(imgtype=="avatar"){
+user.avatar = data;
+ var ref=db.ref("UserInfo/"+user.username+"/avatar/");
+ ref.set(data);
+}else if(imgtype=="banner"){
+user.banner = data;
+var ref=db.ref("UserInfo/"+user.username+"/banner/");
+ ref.set(data);
+}
+ 
+ window.location.href = "userindex.html";
+}
+ var ele = document.getElementById("avatar-popup-content");
+ele.style.textAlign = "center";
+ele.appendChild(img);
+ele.appendChild(br);
+ele.appendChild(button);
+}
+fileReader.readAsDataURL(file);
+}
+}
+function showEditImage(){
+var container = document.getElementById("avatar-popup-container");
+var content = document.getElementById("avatar-popup-content");
+container.style.display="block";
+content.style.display="block";
+}
+function editAvatar(){
+imgtype="avatar";
+showEditImage();
+}
+
 function addNewNote(){
 var user=new UserInfo();
 var username=user.username;
@@ -132,17 +193,23 @@ snapshot.forEach(function(childSnapshot){
 }
 function showUserInfo(){
 var userinfo=new UserInfo();
+firebase.database().ref("UserInfo/"+userinfo.username).on("value",function(snapshot){
+userinfo.username = snapshot.val().username;
+userinfo.fullname = snapshot.val().fullname;
+userinfo.avatar = snapshot.val().avatar;
+userinfo.banner = snapshot.val().banner;
+//
 var img1=document.getElementById("img1");
 img1.onclick=function(){
-alert("Đổi ảnh bìa");
+editBanner();
 }
 var img2=document.getElementById("img2");
 img2.onclick=function(){
-alert("Đổi avatar");
+editAvatar();
 }
 var fullnameele=document.createElement("h2");
 fullnameele.onclick=function(){
-alert("Đổi Họ và Tên");
+editFullname();
 }
 fullnameele.className="userfullname";
 fullnameele.innerHTML=userinfo.fullname;
@@ -150,6 +217,9 @@ img1.src=userinfo.banner;
 img2.src=userinfo.avatar;
 var ele2=document.getElementById("fullnamewr");
 ele2.appendChild(fullnameele);
+//
+});
+
 }
 
 function showNotesList(){
@@ -260,6 +330,7 @@ this.fullname=localStorage.getItem("fullname");
 this.password=localStorage.getItem("password");
 this.banner=localStorage.getItem("banner");
 this.avatar=localStorage.getItem("avatar");
+
 }
 function OneUserInfo(username,fullname,password,banner,avatar){
 this.username=username;

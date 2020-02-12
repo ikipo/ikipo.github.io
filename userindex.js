@@ -8,7 +8,17 @@ var noteId=1;
 var noteId2="";
 var imgtype="";
 function editFullname(){
-alert("");
+//var person = prompt("Please enter your name", "Harry Potter");
+
+var user = new UserInfo();
+var db=firebase.database();
+var ref=db.ref("UserInfo/"+user.username+"/fullname");
+var fullname = prompt("Nhập Tên Mới",user.fullname);
+if(fullname.trim()!==""){
+ref.set(fullname);
+alert("Đã đổi tên thành "+fullname);
+localStorage.setItem("fullname",fullname);
+}
 }
 function editBanner(){
 showEditImage();
@@ -39,10 +49,12 @@ button.onclick = function(){
 user.avatar = data;
  var ref=db.ref("UserInfo/"+user.username+"/avatar/");
  ref.set(data);
+ localStorage.setItem("avatar",data);
 }else if(imgtype=="banner"){
 user.banner = data;
 var ref=db.ref("UserInfo/"+user.username+"/banner/");
  ref.set(data);
+ localStorage.setItem("banner",data);
 }
  
  window.location.href = "userindex.html";
@@ -193,11 +205,6 @@ snapshot.forEach(function(childSnapshot){
 }
 function showUserInfo(){
 var userinfo=new UserInfo();
-firebase.database().ref("UserInfo/"+userinfo.username).on("value",function(snapshot){
-userinfo.username = snapshot.val().username;
-userinfo.fullname = snapshot.val().fullname;
-userinfo.avatar = snapshot.val().avatar;
-userinfo.banner = snapshot.val().banner;
 //
 var img1=document.getElementById("img1");
 img1.onclick=function(){
@@ -217,9 +224,6 @@ img1.src=userinfo.banner;
 img2.src=userinfo.avatar;
 var ele2=document.getElementById("fullnamewr");
 ele2.appendChild(fullnameele);
-//
-});
-
 }
 
 function showNotesList(){

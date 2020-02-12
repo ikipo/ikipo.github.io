@@ -1,5 +1,5 @@
-
-  // Your web app's Firebase configuration
+(function(){
+ // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCDNIrdhAyxNomnhnlM-MMyoFVD3SeJfaU",
     authDomain: "giaitoan-3e3ef.firebaseapp.com",
@@ -13,3 +13,4 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+})();

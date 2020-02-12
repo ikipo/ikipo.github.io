@@ -1,8 +1,24 @@
 window.onload=function(){
-
-con();
+var remember = localStorage.getItem("rememberlogin");
+document.getElementById("username").value = localStorage.getItem("usernamelogin");
+document.getElementById("password").value = localStorage.getItem("passwordlogin");
+//con();
 }
 
+function rememberLogin(username,fullname,password){
+var checkbox = document.getElementById("cbremember").checked;
+if(checkbox){
+localStorage.setItem("usernamelogin",username);
+localStorage.setItem("passwordlogin",password);
+localStorage.setItem("fullnamelogin",fullname);
+localStorage.setItem("rememberlogin",true);
+}else{
+localStorage.setItem("usernamelogin","");
+localStorage.setItem("passwordlogin","");
+localStorage.setItem("fullnamelogin","");
+localStorage.setItem("rememberlogin",false);
+}
+}
 function con(){
 var body=document.body;
 var script1=document.createElement("script");
@@ -72,7 +88,6 @@ function loginWithGoogle(){
 function login(){
   var username=document.getElementById("username").value.trim();
   var password=document.getElementById("password").value.trim();
-
   if(username==""||password==""){
     if(username==""){
       alert("Vui lòng điền Tên Đăng Nhập!");
@@ -90,12 +105,13 @@ alert("Đăng nhập không thành công! Tài khoản không tồn tại!");
 }else if(oneUserInfo.password!==password){
 alert("Mật khẩu sai!");
 }else{
+rememberLogin(oneUserInfo.username, oneUserInfo.fullname, oneUserInfo.password);
 localStorage.setItem("username",oneUserInfo.username);
 localStorage.setItem("password",oneUserInfo.password);
 localStorage.setItem("fullname",oneUserInfo.fullname);
 localStorage.setItem("banner",oneUserInfo.banner);
 localStorage.setItem("avatar",oneUserInfo.avatar);
-window.location.href="userindex.html";
+window.history.back();
 }
 });
     }catch(e){alert(e.message);}

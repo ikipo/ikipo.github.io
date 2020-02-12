@@ -1,8 +1,8 @@
 function showUtilities(){
-var oneUtilities1=new OneUtilities("Trang Cá Nhân","login.html","https://cdn.pixabay.com/photo/2016/04/01/10/59/boy-1300136_1280.png");
+var oneUtilities1=new OneUtilities("Trang Cá Nhân","userindex.html","https://cdn.pixabay.com/photo/2016/04/01/10/59/boy-1300136_1280.png");
 var oneUtilities2=new OneUtilities("Trò Chơi","google.com","https://cdn.pixabay.com/photo/2016/10/13/00/22/illustration-1736462_1280.png");
 var oneUtilities3=new OneUtilities("Máy Tính Bỏ Túi","calculator.html","https://cdn.pixabay.com/photo/2012/04/01/13/10/blackboard-23421_1280.png");
-var oneUtilities4=new OneUtilities("Câu Hỏi & Diễn Đàn ","google.com","https://cdn.pixabay.com/photo/2013/07/13/12/43/boy-160168_1280.png");
+var oneUtilities4=new OneUtilities("Câu Hỏi & Diễn Đàn ","question.html","https://cdn.pixabay.com/photo/2013/07/13/12/43/boy-160168_1280.png");
 var oneUtilities5=new OneUtilities("Tin Tức Từ Báo","google.com","https://cdn.pixabay.com/photo/2016/06/20/07/03/megaphone-1468168_1280.png");
 var oneUtilities6=new OneUtilities("Chuyển Đổi Đơn Vị","google.com","https://cdn.pixabay.com/photo/2017/11/24/08/48/office-2974407_1280.png");
 var utilities=[oneUtilities1,oneUtilities2,oneUtilities3,oneUtilities4,oneUtilities5,oneUtilities6];

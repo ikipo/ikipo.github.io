@@ -1,12 +1,26 @@
 window.onload=function(){
+var us = localStorage.getItem("username");
+if(us==""){
+window.location="login.html";;
+}else{
 showUserInfo();
 showNotesList();
 showTimetable();
-
+}
 }
 var noteId=1;
 var noteId2="";
 var imgtype="";
+
+function logout(){
+localStorage.setItem("username","");
+localStorage.setItem("password","");
+localStorage.setItem("fullname","");
+localStorage.setItem("banner","");
+localStorage.setItem("avatar","");
+window.history.back();
+}
+
 function editFullname(){
 //var person = prompt("Please enter your name", "Harry Potter");
 

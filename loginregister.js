@@ -1,7 +1,7 @@
 window.onload=function(){
 var remember = localStorage.getItem("rememberlogin");
-document.getElementById("username").value = localStorage.getItem("usernamelogin");
-document.getElementById("password").value = localStorage.getItem("passwordlogin");
+document.getElementById("lgusername").value = localStorage.getItem("usernamelogin");
+document.getElementById("lgpassword").value = localStorage.getItem("passwordlogin");
 //con();
 }
 
@@ -86,8 +86,8 @@ function loginWithGoogle(){
   alert("loginWithGoogle");
 }
 function login(){
-  var username=document.getElementById("username").value.trim();
-  var password=document.getElementById("password").value.trim();
+  var username=document.getElementById("lgusername").value.trim();
+  var password=document.getElementById("lgpassword").value.trim();
   if(username==""||password==""){
     if(username==""){
       alert("Vui lòng điền Tên Đăng Nhập!");
@@ -111,7 +111,7 @@ localStorage.setItem("password",oneUserInfo.password);
 localStorage.setItem("fullname",oneUserInfo.fullname);
 localStorage.setItem("banner",oneUserInfo.banner);
 localStorage.setItem("avatar",oneUserInfo.avatar);
-window.history.back();
+window.location.href="index.html";
 }
 });
     }catch(e){alert(e.message);}

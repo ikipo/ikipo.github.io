@@ -1,18 +1,83 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+.container{
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18);
+margin-bottom:0px;
+}
+.content{
+padding:12px;
+}
+.title{
+padding:12px;
+background-color:tomato;
+color:white;
+text-align:center;
+}
+.view-all{
+text-align:right;
+background-color:tomato;
+width:100%;
+}
+.a{
+color:tomato;
+}
+</style>
 </head>
 <body>
+<!--start what new-->
+<div class="container">
+ <div class="title">
+  BÀI ĐĂNG MỚI
+ </div>
+ <div class="content" id="what-new-content">
+  
+ </div>
+ <p class="view-all"><a href="" style="color:white" onclick="showAllWhatNew();">Xem tất cả >></a></p>
+</div>
+<!--end what new-->
+<!--start tag1-->
+<div class="container">
+ <div class="title" style="background-color:#2980b9;">
+  CẤP <span style="font-size:30px; text-style:boil;">1</span>
+ </div>
+ <div class="content" id="tag1-new-content">
+  
+ </div>
+ <p class="view-all" style="background-color:#2980b9;"><a href="" style="color:white" onclick="showAllWhatNew();">Xem tất cả >></a></p>
+</div>
+<!--end tag1 new-->
+<!--start tag2 new-->
+<div class="container">
+ <div class="title" style="background-color:#3498db;">
+  CẤP <span style="font-size:30px; text-style:boil;">2</span>
+ </div>
+ <div class="content" id="tag2-new-content">
+  
+ </div>
+ <p class="view-all" style="background-color:#3498db;"><a href="" style="color:white" onclick="showAllWhatNew();">Xem tất cả >></a></p>
+</div>
+<!--end tag2 new-->
+<!--start tag3 new-->
+<div class="container">
+ <div class="title" style="background-color:#1abc9c;">
+ CẤP <span style="font-size:30px; text-style:boil;">3</span>
+ </div>
+ <div class="content" id="tag3-new-content">
+  
+ </div>
+ <p class="view-all" style="background-color:#1abc9c;"><a href="" style="color:white" onclick="showAllWhatNew();">Xem tất cả >></a></p>
+</div>
+<!--end tag3 new-->
+<!--start xem gi-->
+<h2>Xem Gì Hôm Nay?</h2>
 
-<script>
-window.onload = function(){
-var fullname = localStorage.getItem("fullname");
-if(fullname==""){
-window.location.href="login.html";
-}else{
+<!--end xem gi-->
+<script src="question.js">
 
-}
-}
 </script>
 </body>
 </html>

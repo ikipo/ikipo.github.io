@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<title>Tạo bài đăng mới</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+.newpost{
+text-align:center;
+}
+input,button,textarea{
+padding:12px 20px;
+border:1px solid tomato;
+}
+input[type=checkbox] {
+position: relative; 	 
+cursor: pointer; 
+}
+input[type=checkbox]:before { 
+content: ""; 
+display: block; 
+
+width: 16px; 
+height: 16px; 
+
+border: 2px solid tomato; 
+border-radius: 3px; 
+background-color: white; 
+}
+input[type=checkbox]:checked:after { 
+content: ""; 
+display: block; 
+width: 5px; 
+height: 10px; 
+border: solid tomato;
+border-width: 0 2px 2px 0; 
+-webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); 
+position:absolute;
+top: 0; 
+left: 6px; 
+}
+.label{
+width:100%;
+margin-top:8px;
+text-align:left;
+}
+button{
+width:20%;
+padding:12px 20px;
+background-color:tomato;
+color:white;
+border-radius:20px;
+border:1px solid red;
+}
+textarea{
+
+}
+</style>
+</head>
+<body>
+<div class="newpost">
+<h1>Đăng Bài Của Bạn</h1>
+<div class="label">
+<label> Chủ đề bài viết</label>
+<br><input type="text" placeholder="Nhập chủ đề" id="post-title">
+</div>
+<div class="label">
+<label>Nhập nội dung bài viết</label><br>
+<textarea style="width:90%;" rows="12" placeholder="Nhập nội dung bài viết.." id="post-content"></textarea>
+</div>
+<div class="label">
+<input type="file" accept="image/*" onchange="upload();" multiple id="image">
+</div>
+<div class="label">
+<p>Tags</p>
+<input type="checkbox" checked="true" id="cap1" value="Cấp 1"> Cấp 1
+<input type="checkbox" id="cap2" value="Cấp 2"> Cấp 2
+<input type="checkbox" id="cap3" value="Cấp 3"> Cấp 3
+<input type="checkbox" id="other" value="Khác"> Khác
+<p> </p>
+</div>
+<button onclick="newPost();">Xong</button>
+</div>
+<script>
+var images = [];
+function upload(){
+var files = document.getElementById("image").files;
+if(files.length>0){
+ for(i=0;i<files.length;i++){
+  var file = files[i];
+  var fileReader = new FileReader();
+  fileReader.onload = function(rs){
+  images.push(rs.target.result);
+  }
+  fileReader.readAsDataURL(file);
+ }
+}
+}
+function newPost(){
+var username = localStorage.getItem("username");
+if(username==""){
+window.location.href="login.html";
+}else{
+var title = document.getElementById("post-title").value.trim();
+var content = document.getElementById("post-content").value.trim();
+var cap1 = document.getElementById("cap1").checked;
+var cap2 = document.getElementById("cap2").checked;
+var cap3 = document.getElementById("cap3").checked;
+var other = document.getElementById("other").checked;
+var currentdate = new Date();
+ var date = currentdate.getDate() + "/" + (currentdate.getMonth()+1) + "/" + currentdate.getFullYear() + " @ " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+var datecode = Date.now();
+var id = makeid(9);
+var onePost = new OnePost(id,title,content,cap1,cap2,cap3,other,date,datecode,images,username);
+var db = firebase.database();
+var ref = db.ref("Posts/"+id);
+ref.set(onePost);
+alert("Xong");
+resetData();
+}
+}
+function resetData(){
+document.getElementById("post-title").value = "";
+document.getElementById("post-content").value = ""; document.getElementById("cap1").checked = true; document.getElementById("cap2").checked = false; document.getElementById("cap3").checked = false; document.getElementById("other").checked = false;
+}
+function makeid(length) {
+ var result = '';
+ var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+ var charactersLength = characters.length;
+ for ( var i = 0; i < length; i++ ) {
+ result += characters.charAt(Math.floor(Math.random() * charactersLength));
+}
+ return result;
+}
+
+function OnePost(id,title,content,cap1,cap2,cap3,other,date,datecode,images,username){
+this.id = id;
+this.title = title;
+this.content = content;
+this.cap1 = cap1;
+this.cap2 = cap2;
+this.cap3 = cap3;
+this.other = other;
+this.date = date;
+this.datecode = datecode;
+this.images = images;
+this.username = username;
+}
+</script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script src="config.js">
+  
+</script>
+</body>
+</html>

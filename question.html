@@ -32,6 +32,12 @@ color:tomato;
 <div class="container">
  <div class="title">
   BÀI ĐĂNG MỚI
+  <span style="font-size:30px;float:right" onclick="newpost();">+</span>
+<script>
+function newpost(){
+window.location.href = "newpost.html"
+} 
+</script>
  </div>
  <div class="content" id="what-new-content">
   
@@ -78,6 +84,17 @@ color:tomato;
 <!--end xem gi-->
 <script src="question.js">
 
+</script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script src="config.js">
+  
 </script>
 </body>
 </html>

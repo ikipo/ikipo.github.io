@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
+pre { 
+white-space: pre-wrap; /* Since CSS 2.1 */ 
+white-space: -moz-pre-wrap; /* Mozilla, since 1999 */ 
+white-space: -pre-wrap; /* Opera 4-6 */ 
+white-space: -o-pre-wrap; /* Opera 7 */ 
+word-wrap: break-word; /* Internet Explorer 5.5+ */ 
+}
 .container{
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18);
 margin-bottom:0px;
@@ -23,7 +30,7 @@ background-color:tomato;
 width:100%;
 }
 .a{
-color:tomato;
+
 }
 </style>
 </head>
@@ -42,7 +49,7 @@ window.location.href = "newpost.html"
  <div class="content" id="what-new-content">
   
  </div>
- <p class="view-all"><a href="" style="color:white" onclick="showAllWhatNew();">Xem tất cả >></a></p>
+ <p class="view-all"><a href="" style="color:white" onclick="showAllWhatNew('cap1cap2cap3');">Xem tất cả >></a></p>
 </div>
 <!--end what new-->
 <!--start tag1-->
@@ -53,7 +60,7 @@ window.location.href = "newpost.html"
  <div class="content" id="tag1-new-content">
   
  </div>
- <p class="view-all" style="background-color:#2980b9;"><a href="" style="color:white" onclick="showAllWhatNew();">Xem tất cả >></a></p>
+ <p class="view-all" style="background-color:#2980b9;"><a href="viewallpost.html" style="color:white" onclick="showAllWhatNew('cap1');">Xem tất cả >></a></p>
 </div>
 <!--end tag1 new-->
 <!--start tag2 new-->
@@ -64,7 +71,7 @@ window.location.href = "newpost.html"
  <div class="content" id="tag2-new-content">
   
  </div>
- <p class="view-all" style="background-color:#3498db;"><a href="" style="color:white" onclick="showAllWhatNew();">Xem tất cả >></a></p>
+ <p class="view-all" style="background-color:#3498db;"><a href="viewallpost.html" style="color:white" onclick="showAllWhatNew('cap2');">Xem tất cả >></a></p>
 </div>
 <!--end tag2 new-->
 <!--start tag3 new-->
@@ -75,7 +82,7 @@ window.location.href = "newpost.html"
  <div class="content" id="tag3-new-content">
   
  </div>
- <p class="view-all" style="background-color:#1abc9c;"><a href="" style="color:white" onclick="showAllWhatNew();">Xem tất cả >></a></p>
+ <p class="view-all" style="background-color:#1abc9c;"><a href="viewallpost.html" style="color:white" onclick="showAllWhatNew('cap3');">Xem tất cả >></a></p>
 </div>
 <!--end tag3 new-->
 <!--start xem gi-->

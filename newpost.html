@@ -82,7 +82,7 @@ textarea{
 <button onclick="newPost();">Xong</button>
 </div>
 <script>
-var images = [];
+var images = [""];
 function upload(){
 var files = document.getElementById("image").files;
 if(files.length>0){
@@ -115,13 +115,14 @@ var onePost = new OnePost(id,title,content,cap1,cap2,cap3,other,date,datecode,im
 var db = firebase.database();
 var ref = db.ref("Posts/"+id);
 ref.set(onePost);
-alert("Xong");
+alert(JSON.stringify(onePost));
 resetData();
 }
 }
 function resetData(){
 document.getElementById("post-title").value = "";
 document.getElementById("post-content").value = ""; document.getElementById("cap1").checked = true; document.getElementById("cap2").checked = false; document.getElementById("cap3").checked = false; document.getElementById("other").checked = false;
+images = [""];
 }
 function makeid(length) {
  var result = '';

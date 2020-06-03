@@ -4,18 +4,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script>
 		window.onload = function (){
-		showToast ();
+	    alert ("");
+  	//showToast ();
 	    }
 	    
 	    function showToast (){
 	    var string = window.user.showUser ();
-	    alert (string);
+	    //alert (string);
+	    var id1 = document.getElementById ("id1");
+	    id1.innerHTML = string;
 	    }
 		</script>
 	</head>
 	<body>
 	<div id="id1">
-	0
+	
 	</div>
 	</body>
 </html>

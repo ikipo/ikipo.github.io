@@ -38,6 +38,7 @@ function user(){
 }
 
 function them(type,vl,chiso,dk,rs){
+  vl = new Date();
 	var db = firebase.database();
 	var ref = db.ref(type+"/"+vl);
 	var rb = new robot();

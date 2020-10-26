@@ -136,9 +136,11 @@ window.scrollTo(0,document.body.scrollHeight);
       }
 	  var n2 = txts.length;
 		  var n3 = keys[i].split(" ").length;
-		  //var n3 = txts.length;
+		  var n4 = txts.length;
           pt = number/n3;
           pt = pt*100;
+        var pt2 = (number/n4)*100;
+        pt = (pt+pt2)/2;
 		  if(pt>max){
 		    max = pt;
 			//rs = keys[i]+" "+max+"%";

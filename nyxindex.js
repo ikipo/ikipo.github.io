@@ -38,15 +38,28 @@ function user(){
 }
 
 function them(type,vl,chiso,dk,rs){
-  vl = Date.now();
+ // vl = Date.now();
 	var db = firebase.database();
 	var ref = db.ref(type+"/"+vl);
+  var ref2 = db.ref(type+"/"+vl+"/dk");
+  var ref3 = db.ref(type+"/"+vl+"/rs");
+  
 	var rb = new robot();
 	rb.vl = vl;
 	rb.chiso = chiso;
-	rb.dk = dk;
-	rb.rs = rs;
+//  rb.dk = dk;
+//rb.rs = rs;
 	ref.set(rb);
+  for(a=0;a<dk.length;a++){
+    ref2 = db.ref("Dk/"+vl+"/dk/"+dk[a]+"/");
+    ref2.push(dk[a]);
+  }
+  for(b=0;b<rs.length;b++){
+    ref3 = db.ref("Dk/"+vl+"/rs/"+rs[b]+"/");
+    ref3.push(rs[b]);
+  }
+  
+  
   var typew = "Robot";
   if(type=="Robot"){
     typew="User";
@@ -60,7 +73,22 @@ function them(type,vl,chiso,dk,rs){
   }
 }
 
-
+function checkAndAdd(vl,dk,rs){
+  var db = firebase.database();
+  var ref = db.ref("Robot/");
+  ref("Robot/"+vl+"/dk").on("value",function(s){
+    
+      var s = sn.val();
+      alert(rs);
+    
+  });
+  ref("Robot/"+vl+"/rs").on("value",function(s){
+    
+      var rs = s.val();
+      alert(rs);
+    
+  });
+}
 
 function demo(){
   

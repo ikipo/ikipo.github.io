@@ -116,6 +116,7 @@ window.scrollTo(0,document.body.scrollHeight);
   }
   
   function tinhpt(keys,keyss){
+    var ok = 0;
     var max = 0;
     var rs = "";
     var pt = 0;
@@ -124,23 +125,23 @@ window.scrollTo(0,document.body.scrollHeight);
 	txt = txt.toLowerCase();
     var txts = txt.split(" ");
     for(i=0;i<keys.length;i++){
-	  var s0 = keys[i].split(" ");
-      for(b=0;b<s0.length;b++){  
-        var s2 = s0[b].toLowerCase();
+	  var s0 = keys[i];
+      //for(b=0;b<s0.length;b++){  
+        var s2 = s0.toLowerCase();
         for(z=0;z<txts.length;z++){
 		  var s3 = txts[z];
 		  if(s2.includes(s3)){
 		    number = number+1;
 		  }
 		}
-      }
+     // }
 	  var n2 = txts.length;
 		  var n3 = keys[i].split(" ").length;
 		  var n4 = txts.length;
-          pt = number/n3;
-          pt = pt*100;
-        var pt2 = (number/n4)*100;
-        pt = (pt+pt2)/2;
+         // pt = number/n3;
+          //pt = pt*100;
+        pt = (number/n4)*100;
+        //pt = (pt+pt2)/2;
 		  if(pt>max){
 		    max = pt;
 			//rs = keys[i]+" "+max+"%";

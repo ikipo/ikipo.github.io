@@ -135,7 +135,8 @@ window.scrollTo(0,document.body.scrollHeight);
 		  if(s2.includes(s3)){
 		   if(s3.length==s2.length){
 		    number = number+1;
-		    number = s2.match(/s3/gi).length;
+			   var p = s2.match(/s3/g);
+		    number = p.length;
 		   }   
 		  }
 		}

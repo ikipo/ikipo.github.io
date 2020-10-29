@@ -127,7 +127,8 @@ window.scrollTo(0,document.body.scrollHeight);
     var txts = txt.split(" ");
     for(i=0;i<keyss.length;i++){
 	  number = 0;
-	  var s0 = keyss[i].key;  
+	  var s00 = keyss[i];  
+	  var s0 = s00.dk;
       //for(b=0;b<s0.length;b++){  
         var s2 = s0.toLowerCase();
         for(z=0;z<txts.length;z++){
@@ -148,7 +149,7 @@ window.scrollTo(0,document.body.scrollHeight);
 	    
         pt = (number/n4)*100;
 	    
-			  addchattoview(keyss[i]+" "+pt+"% - dk");
+			  addchattoview(keyss[i].dk+" "+pt+"% - dk");
 			  addchattoview(keyss[i].vl+" "+pt+"% - vl");
         //pt = (pt+pt2)/2;
 		  if(pt>max){

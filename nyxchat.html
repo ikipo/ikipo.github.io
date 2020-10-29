@@ -57,7 +57,8 @@
 
 
 
-<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase.js"></script>
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -130,7 +131,7 @@ window.scrollTo(0,document.body.scrollHeight);
         var s2 = s0.toLowerCase();
         for(z=0;z<txts.length;z++){
 		  var s3 = txts[z];
-		  if(s2.includes(s3)){
+		  if(s3.includes(s2)){
 		    number = number+1;
 		  }
 		}

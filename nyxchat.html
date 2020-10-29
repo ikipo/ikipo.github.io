@@ -144,9 +144,17 @@ window.scrollTo(0,document.body.scrollHeight);
 		  var n4 = txts.length;
          // pt = number/n3;
           //pt = pt*100;
+	    var m1 = txts.length;
+	    var m2 = keys[i].split(" ").length;
+	    var m3 = m1/m2;
+	    if(m3>1){
+	     m3 = m2/m1;
+	    }
+	    var m4 = number*m3*100;
+	    
         pt = (number/n4)*100*ok;
         //pt = (pt+pt2)/2;
-		  if(pt>max){
+		  if(m4>max){
 		    max = pt;
 			//rs = keys[i]+" "+max+"%";
 			rs = keyss[i].vl//+" "+max+"%";

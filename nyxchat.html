@@ -125,9 +125,9 @@ window.scrollTo(0,document.body.scrollHeight);
     var txt = txtct;
 	txt = txt.toLowerCase();
     var txts = txt.split(" ");
-    for(i=0;i<keys.length;i++){
+    for(i=0;i<keyss.length;i++){
 	  number = 0;
-	  var s0 = keys[i];  
+	  var s0 = keyss[i].key;  
       //for(b=0;b<s0.length;b++){  
         var s2 = s0.toLowerCase();
         for(z=0;z<txts.length;z++){
@@ -140,22 +140,15 @@ window.scrollTo(0,document.body.scrollHeight);
 		}
      // }
 	  var n2 = txts.length;
-		  var n3 = keys[i].split(" ").length;
+		  //var n3 = keyss[i].key.split(" ").length;
 		  var n4 = txts.length;
          // pt = number/n3;
           //pt = pt*100;
-	    var m1 = txts.length;
-	    var m2 = keys[i].split(" ").length;
-	    var m3 = m1/m2;
-	    if(m3>1){
-	     m3 = m2/m1;
-	    }
-	    var m4 = number/m3;
-	    m4 = m4*100;
+	    
 	    
         pt = (number/n4)*100;
 	    
-			  addchattoview(keys[i]+" "+pt+"% - dk");
+			  addchattoview(keyss[i]+" "+pt+"% - dk");
 			  addchattoview(keyss[i].vl+" "+pt+"% - vl");
         //pt = (pt+pt2)/2;
 		  if(pt>max){

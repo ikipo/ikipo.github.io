@@ -117,7 +117,7 @@ window.scrollTo(0,document.body.scrollHeight);
   }
   
   function tinhpt(keys,keyss){
-    var ok = 0;
+   /* var ok = 0;
     var max = 0;
     var rs = "";
     var pt = 0;
@@ -161,7 +161,14 @@ window.scrollTo(0,document.body.scrollHeight);
 		  pt = 0;
 		  number = 0;
           
-    }
+    } */
+	  var rs = '';
+	  for(i = 0; i<keyss.length;i++){
+            var obj = keyss[i];
+	    rs = obj.key;
+		  addchattoview(obj.dk);
+		  addchattoview(obj.vl);
+	  }
 	findRs(rs);
   }
   

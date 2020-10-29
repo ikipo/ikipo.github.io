@@ -135,8 +135,6 @@ window.scrollTo(0,document.body.scrollHeight);
 		  if(s2.includes(s3)){
 		   if(s3.length==s2.length){
 		    number = number+1;
-			   var p = s2.match(/s3/g);
-		    number = p.length;
 		   }   
 		  }
 		}
@@ -152,7 +150,8 @@ window.scrollTo(0,document.body.scrollHeight);
 	    if(m3>1){
 	     m3 = m2/m1;
 	    }
-	    var m4 = number*m3*100;
+	    var m4 = number/m3;
+	    m4 = m4*100;
 	    
         pt = (number/n4)*100*ok;
         //pt = (pt+pt2)/2;

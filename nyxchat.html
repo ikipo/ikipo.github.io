@@ -126,17 +126,16 @@ window.scrollTo(0,document.body.scrollHeight);
 	txt = txt.toLowerCase();
     var txts = txt.split(" ");
     for(i=0;i<keys.length;i++){
-	  var s0 = keys[i].split(" ");
+	  var s0 = keys[i].split(" ");  
       for(b=0;b<s0.length;b++){  
         var s2 = s0[b].toLowerCase();
         for(z=0;z<txts.length;z++){
 		  var s3 = txts[z];
+		ok = s3.length/s0.length;
 		  if(s2.includes(s3)){
-	
-		if(s3.length==s2.length){
-		number = number+1;  
-		}
-		    
+		   if(s3.length==s2.length){
+		    number = number+1;  
+		   }   
 		  }
 		}
       }
@@ -145,7 +144,7 @@ window.scrollTo(0,document.body.scrollHeight);
 		  var n4 = txts.length;
          // pt = number/n3;
           //pt = pt*100;
-        pt = (number/n4)*100;
+        pt = (number/n4)*100*ok;
         //pt = (pt+pt2)/2;
 		  if(pt>max){
 		    max = pt;

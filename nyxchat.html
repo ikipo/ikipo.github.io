@@ -166,8 +166,8 @@ window.scrollTo(0,document.body.scrollHeight);
 	  for(i = 0; i<keyss.length;i++){
             var obj = keyss[i];
 	    rs = obj.key;
-		  addchattoview(obj.dk);
-		  addchattoview(obj.vl);
+		  addchattoview(obj.dk + ' dk '+ i);
+		  addchattoview(obj.vl + ' vl ' + i);
 	  }
 	findRs(rs);
   }

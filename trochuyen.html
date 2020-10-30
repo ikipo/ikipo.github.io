@@ -1,0 +1,172 @@
+<!doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+   .chatinput{
+     position: fixed;
+     bottom:0;
+     left:0;
+     width:100%;
+   }
+   .chatinput input{
+     positon:absolute;
+     left:0;
+     bottom:0;
+     padding-top:10px;
+     padding-left:10px;
+     padding-bottom:10px;
+     padding-right:10px;
+     width:70%;
+     border-radius:10px;
+   }
+   .chatinput button{
+     position:absolute;
+     right:0;
+     bottom:0;
+     padding:10px;
+     width:25%;
+   }
+   #chatcontent{
+     overflow:auto;
+     height:80%;
+     
+     left:10px;
+     top:10px;
+     margin-bottom:100px;
+   }
+  #chatitem{
+    padding:10px;
+    background:tomato;
+    margin-bottom:10px;
+  }
+  </style>
+</head>
+<body>
+  <div class="chatinput">
+<input type="text" placeholder="Bạn muốn nói gì?" id="inputchattext"onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('btnSend').click()">
+<button onclick="chat();" id="btnSend">Trò chuyện</button>
+  </div>
+
+<div id="chatcontent">
+</div>
+
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
+  <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyAlyaVlI6Hge_bvmB1iGlr1E-79nfjFSDI",
+    authDomain: "nguoiyeuxa-e5589.firebaseapp.com",
+    databaseURL: "https://nguoiyeuxa-e5589.firebaseio.com",
+    projectId: "nguoiyeuxa-e5589",
+    storageBucket: "nguoiyeuxa-e5589.appspot.com",
+    messagingSenderId: "800878951272",
+    appId: "1:800878951272:web:33cb718c1a1c4bfcdcb4dd",
+    measurementId: "G-V0G602Y9GN"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
+<script>
+	
+window.onload = function(){
+	localStorage.setItem("dk","");
+	localStorage.setItem("cs","1");
+	localStorage.setItem("them","no");
+	//alert("");
+}
+  function chat(){
+  var them = localStorage.getItem("them");
+  if(them=="yes"){
+	var db  = firebase.database();
+	var ref = db.ref("Trochuyens/");
+	var data = new Data();
+	data.dk = localStorage.getItem("dk");
+	data.rs = document.getElementById("inputchattext").value;
+	data.cs = localStorage.getItem("cs");
+	ref.push(data);
+	//alert("");
+  }
+  else{
+   var max = 90;
+   var number = 0;
+   var pt = 0;
+   var chattext = document.getElementById("inputchattext").value;
+   var chattexts = chattext.split(" ");
+   var listDk = [];
+   var db  = firebase.database();
+   var ref = db.ref("Trochuyens/");
+   ref.on("value",function(snapshot){
+	snapshot.forEach(function(snap){
+		var number = 0;
+		var pt = 0;
+		var data = snap.val();
+		for(i=0;i<chattexts.length;i++){
+			var s = chattexts[i].toLowerCase();
+			var dk = data.dk;
+			dk = dk.toLowerCase();
+			if(dk.includes(s)){
+				number = number +1;
+			}
+		}
+		pt = number/chattexts.length;
+		pt = pt*100;
+		if(pt>max){
+			listDk.push(data);
+		}
+	});
+	find(listDk);
+   });
+   }
+  }
+  
+  function find(listDk){
+	if(listDk.length==0){
+		var chattext = document.getElementById("inputchattext").value;
+		addchattoview(chattext + " - trả lời như thế nào?");
+		document.getElementById("inputchattext").value = "";
+		localStorage.setItem("dk",chattext);
+		localStorage.setItem("cs","1");
+		localStorage.setItem("them","yes");
+	}else{
+		localStorage.setItem("dk","");
+		localStorage.setItem("cs","1");
+		localStorage.setItem("them","no");
+		var chattext = document.getElementById("inputchattext").value;
+		var chattexts = chattext.split(" ");
+		//for(i = 0; i<listDk.length; i++){
+			var indexR = Math.floor(Math.random() * listDk.length);
+			var dt = listDk[indexR];
+			addchattoview(dt.rs);
+		//}
+	 }
+  }
+  
+  function Data(){
+	
+  }
+  function addchattoview(text){
+	var content = document.getElementById("chatcontent");
+	var ele = document.createElement("p");
+    ele.id = "chatitem";
+	ele.innerHTML = text;
+	//content.appendChild(ele);
+	content.innerHTML = text;
+  }
+  
+</script>
+</body>
+</html>
